@@ -1,7 +1,7 @@
 package virtualpetassignment;
 
 public class VirtualPet {
-    private int food = 9;
+    private int food = 8;
     private int hydration = 8;
     private int play = 5;
     private int rest = 7;
@@ -27,20 +27,20 @@ public class VirtualPet {
     }
 
     public void feed() {
-        food += 4;
+        food += 6;
     }
     public void water() {
-        hydration += 4;
+        hydration += 6;
     }
     public void play() {
-        play += 5;
-        food -= 2;
-        hydration -= 3;
+        play += 8;
+        food -= 1;
+        hydration -= 2;
         rest -= 3;
     }
     public void rest() {
-        rest += 6;
-        play -= 4;
+        rest += 8;
+        play -= 3;
     }
 
     public boolean isItOkay() {

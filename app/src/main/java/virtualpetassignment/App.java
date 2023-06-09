@@ -14,9 +14,8 @@ public class App {
 
         System.out.println("Welcome to Luke's Animal Sanctuary!");
         System.out.println("At our establishment, you get to be in charge of one of our lovely and adorable pets!");
-        System.out.println("You will be responsible for keeping the pet fed and watered, entertained, and rested.");
-        System.out.println("Each time you start an activity, it will take an amount of turns listed next to the action.");
-        System.out.println("Make sure to maintain the stats of the pet! If any stat reaches zero it's game over!");
+        System.out.println("You will be responsible for keeping the pet fed, hydrated, entertained, and rested.");
+        System.out.println("Make sure to maintain the stats of the pet! If any stat reaches zero, we will have to take the pet back for the day.");
         System.out.println("Let's get started, shall we?");
         System.out.println("What is the name of your pet?");
         String petName = input.nextLine();
@@ -36,7 +35,6 @@ public class App {
             System.out.println("E. Exit the game.");
             String userInput = input.nextLine();
             userInput = userInput.trim().toLowerCase();
-
 
             if(userInput.equals("a")) {
                 System.out.println("You have fed " + petName + ".");
@@ -66,12 +64,8 @@ public class App {
                 break;
             }
 
-
         } while (keepGoing);
-
         System.out.println("Thanks for visiting " + petName + ". Hope you enjoyed your stay!");
-
-
         input.close();
     }
 }
