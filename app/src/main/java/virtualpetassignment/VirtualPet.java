@@ -1,11 +1,31 @@
 package virtualpetassignment;
 
-public class VirtualPet {
-    private int food = 8;
-    private int hydration = 8;
-    private int play = 5;
-    private int rest = 7;
+import java.util.Random;
 
+public class VirtualPet {
+    private int food;
+    private int hydration;
+    private int play;
+    private int rest;
+
+    private String petName;
+    private String petDescription;
+
+    public VirtualPet(String petName, String petDescription) {
+        this.petName = petName;
+        this.petDescription = petDescription;
+        this.food = getRandomNumber(20, 50);
+        this.hydration = getRandomNumber(20, 50);
+        this.play = getRandomNumber(20, 50);
+        this.rest = getRandomNumber(20, 50);
+    }
+
+    public String getPetName() {
+        return petName;
+    }
+    public String getPetDescription() {
+        return petDescription;
+    }
     public int getFood() {
         return food;
     }
@@ -20,41 +40,42 @@ public class VirtualPet {
     }
 
     public void tick() {
-        food -= 1;
-        hydration -= 1;
-        play -=  1;
-        rest -= 1;
+        food -= 5;
+        hydration -= 5;
+        play -=  5;
+        rest -= 5;
     }
 
     public void feed() {
-        food += 6;
+        food += 30;
     }
     public void water() {
-        hydration += 6;
+        hydration += 30;
     }
     public void play() {
-        play += 8;
-        food -= 1;
-        hydration -= 2;
-        rest -= 3;
+        play += 30;
+        hydration -= 5;
+        rest -= 5;
     }
     public void rest() {
-        rest += 8;
-        play -= 3;
+        rest += 30;
+        play -= 5;
     }
+
+
 
     public boolean isItOkay() {
         Boolean petHealth = true;
-        if (food <= 3) {
+        if (food <= 15) {
             petHealth = false;
         }
-        if (hydration <= 3) {
+        if (hydration <= 15) {
             petHealth = false;
         }
-        if (play <= 3) {
+        if (play <= 5) {
             petHealth = false;
         }
-        if (rest <= 3) {
+        if (rest <= 5) {
             petHealth = false;
         }
         return petHealth;
@@ -74,6 +95,11 @@ public class VirtualPet {
             petHealth = false;
         }
         return petHealth;
+    }
+
+    public int getRandomNumber (int min, int max) {
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
     }
 
 }
