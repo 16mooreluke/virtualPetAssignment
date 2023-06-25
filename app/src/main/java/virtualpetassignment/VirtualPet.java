@@ -82,16 +82,16 @@ public class VirtualPet {
     }
     public boolean isItDead() {
         Boolean petHealth = true;
-        if (food == 0) {
+        if (food <= 0) {
             petHealth = false;
         }
-        if (hydration == 0) {
+        if (hydration <= 0) {
             petHealth = false;
         }
-        if (play == 0) {
+        if (play <= 0) {
             petHealth = false;
         }
-        if (rest == 0) {
+        if (rest <= 0) {
             petHealth = false;
         }
         return petHealth;

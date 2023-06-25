@@ -51,7 +51,11 @@ public class App {
             if(userInput.equals("a")) {
                 System.out.println("Which pet would you like to work with?");
                 String userPetChoice = input.nextLine();
-                // for ()
+                List<VirtualPet> pets = new ArrayList<VirtualPet>();
+                pets = userShelterPets.getAllPets();
+                for (VirtualPet thisPet : pets) {
+
+                }
                     
 
                 }
@@ -74,15 +78,18 @@ public class App {
             }
             if(userInput.equals("f")) {
                 List<VirtualPet> pets = new ArrayList<VirtualPet>();
-                // pets = userShelterPets.getAllPets();
+                pets = userShelterPets.getAllPets();
                 System.out.println("Which pet would you like to get adopted?");
                 userPetAdopt = input.nextLine();
-                int index;
-                index = pets.indexOf(userPetAdopt);
-                if (index != -1) {
-                    pets.remove(index);
-                } else {
-                    System.out.println("There is no pet named " + userPetAdopt + " here, try another name!");
+                boolean foundPetName = false;
+                for (int i = 0; i < pets.size(); i++) {
+                    if (pets.get(i).getPetName().equals(userPetAdopt)) {
+                        pets.remove(i);
+                        foundPetName = true;
+                    }
+                }
+                if (foundPetName == false) {
+                    System.out.println("Sorry, I couldn't find a pet named " + userPetAdopt + ".");
                 }
             }
             if(userInput.equals("g")) {
@@ -114,7 +121,11 @@ public class App {
                 if (!thisPet.isItDead()) {
                     System.out.println(thisPet.getPetName() + " has been removed from the sanctuary");
                     // insert remove
-                    // userShelterPets.removePet(thisPet);
+                    for (int i = 0; i < pets.size(); i++) {
+                    if (pets.get(i).getPetName().equals(thisPet)) {
+                        pets.remove(i);
+                    }
+                    }
                 }
             }
         } while (keepGoing);
